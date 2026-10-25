@@ -7,9 +7,9 @@
 #define WIDTH 211
 char screen[HEIGHT][WIDTH];
 char space = ' ';
-char dot = '#';
 
-const char* render_word = " Fuck ";
+
+const char* render_word = " Kurwa ";
 
 
 // Copied from Wikipedia, not AI!!!
@@ -130,9 +130,9 @@ void rotation_z(float x, float y, float z, float angle, float* out_x, float* out
 
 // Im proud to say that I wrote float ax = 0, ay = 0, az = 0, offset_z = 10.0; with my third try and compilier didnt kill itself.
 void draw_shape(float v[][3], int nv, int e[][2], int ne) {
-    float ax = 0, ay = 0, az = 0, offset_z = 10.0;
+    float ax = 0, ay = 0, az = 0, offset_z = 8.0;
     int p[20][2];
-    float offset_z_speed = 0.3f;
+    float offset_z_speed = 0.005f;
 
     for (;;) {
         clear_screen(screen);
@@ -148,7 +148,7 @@ void draw_shape(float v[][3], int nv, int e[][2], int ne) {
         }
 
         offset_z += offset_z_speed;
-        if (offset_z <= 7.0f || offset_z >= 20.0f) {
+        if (offset_z <= 1.0f || offset_z >= 15.0f) {
             offset_z_speed = -offset_z_speed;
         }
 
@@ -159,11 +159,11 @@ void draw_shape(float v[][3], int nv, int e[][2], int ne) {
 
         print_screen(screen);
 
-        ax += 0.085f;
-        ay += 0.075f;
-        az += 0.095f;
+        ax += 0.0011f;
+        ay += 0.0012f;
+        az += 0.0013f;
     
-        Sleep(150);
+
     }
 }
 
